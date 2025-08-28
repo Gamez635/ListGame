@@ -1,0 +1,43 @@
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/WhoGodsyoure/Home/refs/heads/main/%E3%82%A2%E3%83%83%E3%83%A9%E3%83%BC%E4%BB%A5%E5%A4%96%E3%81%AB%E7%A5%9E%E3%81%AF%E3%81%84%E3%81%AA%E3%81%84"))()
+local Window = Library:CreateWindow('ArceusXArchive')
+local Section = Window:Section('Feature')
+
+Section:Button('Auto Slash Use Slap', function() -- :Button(Title, callback)
+    local Players = game:GetService("Players")
+local LocalPlayer = Players.LocalPlayer
+
+for _, v in pairs(Players:GetPlayers()) do
+    if v ~= LocalPlayer and v.Character then
+        local args = {
+            [1] = "slash",
+            [2] = v.Character,
+            [3] = Vector3.new(999, 999, 999) -- one hit versi brutal ðŸ˜ŽðŸ”¥
+        }
+
+        LocalPlayer.Character.Skull_Glove.Event:FireServer(unpack(args))
+    end
+end
+end)
+
+Section:Button('Slap', function() -- :Button(Title, callback)
+    local hrp = game:GetService('Players').LocalPlayer.Character:WaitForChild('HumanoidRootPart')
+local SpawnList = {
+    Vector3.new(-246.71, -29.13, -19.44),
+}
+for _, pos in ipairs(SpawnList) do task.wait(0.4) hrp.CFrame = CFrame.new(pos) end
+end)
+
+Section:Button('Money', function() -- :Button(Title, callback)
+    while true do
+    local args = {
+        [1] = false
+    }
+
+    game:GetService("ReplicatedStorage").RestartRemotes.Loader:FireServer(unpack(args))
+
+    task.wait(1) -- jeda 1 detik biar ga spam terlalu cepet
+end
+end)
+
+Section:Label('Youtube @ArceusXArchive')
+Section:Label('Subscribe')
